@@ -68,7 +68,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="font-semibold text-deep-brown">Email</div>
-                  <div className="text-village-brown" data-testid="text-business-email">dayanidhibujj@gmail.com</div>
+                  <div className="text-village-brown" data-testid="text-business-email">deliciousatreyapuramputharekul@gmail.com</div>
                 </div>
               </div>
 
