@@ -118,7 +118,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <i className="fas fa-envelope mr-3 text-heritage-gold"></i>
-                <span data-testid="text-footer-email">dayanidhibujj@gmail.com</span>
+                <span data-testid="text-footer-email">deliciousatreyapuramputharekul@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt mr-3 text-heritage-gold mt-1"></i>
