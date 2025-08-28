@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+
+:root {
+  --background: hsl(42, 46%, 96%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(42, 46%, 96%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --popover: hsl(42, 46%, 96%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --primary: hsl(42, 62%, 51%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(20, 14.3%, 4.1%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --muted: hsl(42, 20%, 90%);
+  --muted-foreground: hsl(20, 14.3%, 4.1%);
+  --accent: hsl(87, 20%, 65%);
+  --accent-foreground: hsl(20, 14.3%, 4.1%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(42, 33%, 85%);
+  --input: hsl(42, 33%, 85%);
+  --ring: hsl(42, 62%, 51%);
+
+  /* Updated trendy color variables for Indian village theme */
+  --golden: #f2b14c;
+  --deep-brown: #663300;
+  --sage: #a3b18a;
+  --cream: #fff7e6;
+  --saffron: #FF6F3C;
+  --warm-beige: #fff8f0;
+  --soft-blue: #7AA6DA;
+  --village-brown: #cd7e16;
+  --heritage-gold: #FFB800;
+
+  /* New gradient colors */
+  --gradient-primary: linear-gradient(135deg, #FFB800 0%, #f2b14c 100%);
+  --gradient-accent: linear-gradient(135deg, #FF6F3C 0%, #FFB800 100%);
+  --gradient-background: linear-gradient(135deg, #fff8f0 0%, #fff7e6 100%);
+
+  /* Font families */
+  --font-playfair: 'Playfair Display', serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: 'Monaco', monospace;
+
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: hsl(20, 14.3%, 4.1%);
+  --foreground: hsl(42, 46%, 96%);
+  --card: hsl(25, 75%, 10%);
+  --card-foreground: hsl(42, 46%, 96%);
+  --popover: hsl(20, 14.3%, 4.1%);
+  --popover-foreground: hsl(42, 46%, 96%);
+  --primary: hsl(42, 62%, 51%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(42, 46%, 90%);
+  --secondary-foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(25, 25%, 15%);
+  --muted-foreground: hsl(42, 20%, 65%);
+  --accent: hsl(87, 20%, 25%);
+  --accent-foreground: hsl(42, 62%, 51%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(25, 25%, 20%);
+  --input: hsl(25, 25%, 18%);
+  --ring: hsl(42, 62%, 51%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-inter);
+  background: var(--gradient-background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: var(--gradient-background);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Custom utilities */
+.village-shadow {
+  box-shadow: 0 15px 35px rgba(255, 184, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.heritage-border {
+  border-image: var(--gradient-primary) 1;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.bg-village-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFB800' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Saffron badge positioning fix */
+.saffron-badge {
+  position: absolute;
+  top: 15%;
+  right: 8%;
+  background: var(--gradient-accent);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  box-shadow: 0 8px 25px rgba(255, 111, 60, 0.3);
+  z-index: 10;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 8px 25px rgba(255, 111, 60, 0.3);
+  }
+  50% { 
+    box-shadow: 0 8px 25px rgba(255, 111, 60, 0.6);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Updated color classes with new trendy colors */
+.bg-warm-beige { background-color: var(--warm-beige); }
+.bg-cream { background-color: var(--cream); }
+.bg-heritage-gold { background: var(--gradient-primary); }
+.bg-deep-brown { background-color: var(--deep-brown); }
+.bg-sage { background-color: var(--sage); }
+.bg-saffron { background: var(--gradient-accent); }
+.bg-golden { background-color: var(--golden); }
+.bg-village-brown { background-color: var(--village-brown); }
+.bg-soft-blue { background-color: var(--soft-blue); }
+
+.text-warm-beige { color: var(--warm-beige); }
+.text-cream { color: var(--cream); }
+.text-heritage-gold { color: var(--heritage-gold); }
+.text-deep-brown { color: var(--deep-brown); }
+.text-sage { color: var(--sage); }
+.text-saffron { color: var(--saffron); }
+.text-golden { color: var(--golden); }
+.text-village-brown { color: var(--village-brown); }
+.text-soft-blue { color: var(--soft-blue); }
+
+.font-playfair { font-family: var(--font-playfair); }
+.font-inter { font-family: var(--font-inter); }
+
+/* New gradient button styles */
+.btn-gradient-primary {
+  background: var(--gradient-primary);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 184, 0, 0.3);
+}
+
+.btn-gradient-accent {
+  background: var(--gradient-accent);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 111, 60, 0.3);
+}
+
+/* Hero section specific styles */
+.hero-background {
+  background: var(--gradient-background);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-village-pattern);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gallery popup fade-in animation */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 0.3s cubic-bezier(.19,1,.22,1);
+}
+@keyframes popup {
+  0%   { transform: scale(0.7); opacity: 0.2; }
+  80%  { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1.07); opacity: 1; }
+}
+.animate-popup {
+  animation: popup 0.4s cubic-bezier(.19,1,.22,1);
+}
+
+
